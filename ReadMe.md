@@ -9,7 +9,10 @@ system.
 ## Config
 
 * `FEED_URL`: setenvironmental variable in the resin.io dashboard,
-  to point to the feed URL. If not set, defaults to BBC World News.
+  to point to the feed URL. If not set, defaults to [BBC World News](http://feeds.bbci.co.uk/news/world/rss.xml).
+* `RECHECK_PERIOD`: how often to re-check feed, in `ms`, default is `60000` (i.e. every 1 minute)
+* `READ_OLD`: define it to `1` if want to read out old feed items on application start/restart. By default only
+   new feed items found after the first update run on application start are read out (do not define, or make variable empty string).
 
 ## License
 
