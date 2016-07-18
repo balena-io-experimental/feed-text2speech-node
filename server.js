@@ -112,7 +112,7 @@ function speakout(text, callback) {
     // so might need to be more careful about what to pass it through `say`.
     // Find which voices are available by running `festival`, and starting
     // at `(voice_` press TAB to see what is available on the system.
-    say.speak(textcleaned, 'voice_kal_diphone', 1.0, function(err) {
+    say.speak(textcleaned, 'voice_kep_diphone', 1.0, function(err) {
 	if (err) {
 	    console.log(err);
 	    callback(err);
