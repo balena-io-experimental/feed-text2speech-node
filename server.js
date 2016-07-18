@@ -12,7 +12,9 @@ if (FEED_URL == undefined) {
 // Store feed texts to speak
 var texts = [];
 
-// Get feed
+//
+// Get feed, and store it in `texts`
+//
 var req = request(FEED_URL),
     feedparser = new FeedParser();
 
@@ -50,7 +52,9 @@ feedparser.on('end', () => {
     async.eachSeries(texts, speakout, function(err) { if (err) {console.log(err);} });
 });
 
+//
 // Do the actual speak
+//
 var speakout = function(text, callback) {
     console.log("SPEAK => " + text);
 
@@ -58,7 +62,9 @@ var speakout = function(text, callback) {
     var textcleaned = text.replace(/["]/gi, '')
     // There are a lot of things that `festival` cannot pronounce,
     // so might need to be more careful about what to pass it through `say`.
-    say.speak(textcleaned, 'voice_kal_diphone', 1.0, function(err) {
+    // Find which voices are available by running `festival`, and starting
+    // at `(voice_` press TAB to see what is available on the system.
+    say.speak(textcleaned, 'voice_ked_diphone', 1.0, function(err) {
 	if (err) {
 	    return console.error(err);
 	    callback(err);
