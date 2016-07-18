@@ -77,6 +77,8 @@ function getFeed() {
 
 	    if (READ_OLD || !FIRSTRUN) {
 		ITEMS.push(text);
+	    } else {
+		console.log("^^ OLD, not going to speak it out, change READ_OLD=1 to readout whole list on start");
 	    }
 	}
     });
