@@ -5,16 +5,19 @@ var say = require('say'),
     async = require('async'),
     moment = require('moment');
 
+// Feed URL to pull items from
 var FEED_URL = process.env.FEED_URL;
 if (FEED_URL == undefined) {
     FEED_URL = "http://feeds.bbci.co.uk/news/world/rss.xml"
 }
 
+// How often to check feed
 var RECHECK_PERIOD = process.env.RECHECK_PERIOD;
 if (RECHECK_PERIOD == undefined) {
     RECHECK_PERIOD = 60 * 1000;   // 1 minute
 }
 
+// Whether or not to read items on start/restart
 var READ_OLD = process.env.READ_OLD;
 if (READ_OLD) {
     READ_OLD = true;
@@ -22,7 +25,7 @@ if (READ_OLD) {
     READ_OLD = false;
 }
 
-// // Store feed texts to speak
+// Global Variables
 var ITEMS = [],
     LATEST = moment("20160101T000000"),
     WORKQUEUE = async.queue(speakout, 1),
@@ -94,8 +97,9 @@ function getFeed() {
     });
 };
 
-getFeed();
-
+//
+// Task of reading out content
+//
 function speakout(text, callback) {
     console.log("SPEAK => " + text);
 
@@ -117,3 +121,6 @@ function speakout(text, callback) {
 	callback();
     });
 };
+
+// Let's get started!
+getFeed();
