@@ -6,6 +6,8 @@ Work in progress!
 Uses [Festival](http://www.cstr.ed.ac.uk/projects/festival/) as text-to-speech
 system.
 
+What's read out is a combination of `date - title - description`, e.g: `2016 July 18th 8:02am - Moonlit launch for SpaceX rocket carrying ISS supplies - A SpaceX cargo rocket is bound for the International Space Station after a successful launch from Florida.`
+
 ## Config
 
 * `FEED_URL`: setenvironmental variable in the resin.io dashboard,
