@@ -105,9 +105,6 @@ function getFeed() {
 function speakout(text, callback) {
     console.log("SPEAK => " + text);
 
-    callback();
-    return;
-
     // Festival cannot handle quite marks, clean it
     var textcleaned = text.replace(/["]/gi, '')
     // There are a lot of things that `festival` cannot pronounce,
