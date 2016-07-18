@@ -21,7 +21,7 @@ COPY package.json ./package.json
 #install deps
 RUN JOBS=MAX npm install --unsafe-perm --production && npm cache clean
 
-COPY festival.scm /usr/share/festival/festival.scm
+COPY festivalrc /root/.festivalrc
 
 # Copy all of files here for caching purposes
 COPY . ./
