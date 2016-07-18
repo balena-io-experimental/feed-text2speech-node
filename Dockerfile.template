@@ -1,8 +1,12 @@
 # Use base image for device arch with node installed
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
+MAINTAINER Gergely Imreh <gergely@resin.io>
+
 # set as WORKDIR
 WORKDIR /usr/src/app
+
+ENV INITSYSTEM on
 
 RUN apt-get update && \
     apt-get install -qy \
