@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 ENV INITSYSTEM on
 
 RUN apt-get update && \
-    apt-get install -qy \
+    apt-get install -qy --no-install-recommends \
       alsa-utils \
       festival \
       festvox-kdlpc16k \
